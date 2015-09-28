@@ -1,0 +1,31 @@
+# Site settings
+title: "Rhett Lowe"
+email: rng2ml@gmail.com
+description: "Trying new technologies and paradigms."
+baseurl: ""
+url: "http://carte-noire.jacobtomlinson.co.uk/"
+title_description: "I'm a Javascript developer working in both frontend and backend. I try our new technologies and paradigms all the time -- some of them work for me, some don't. Here I can talk about them, my opinions, my successes, and my failings."
+title_image: "http://www.gravatar.com/avatar/d2948d655c55ea1aa19c385d723077b4.jpg?s=500&d=mm"
+google_analytics: ""
+disqus_account: rhettlowe
+github_repository: https://github.com/rhettl/rhettl.github.io
+addthis_id: 
+post_limit: 10
+
+# Social usernames/URLs
+twitter_username: rhettlowe
+github_username: rhettl
+linkedin_link: 
+google_plus_link: https://plus.google.com/+RhettLowe
+stackoverflow_link: http://stackoverflow.com/users/1445481
+
+# Footer
+footer_left: "Made with <i class=\"fa fa-heart\"></i> by <a href=\"http://jekyllrb.com/\">Jekyll</a>"
+footer_right: "&lt;/&gt; on <a href=\"https://github.com/rhettl/rhettl.github.io\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+permalink: pretty
+exclude: [vendor]

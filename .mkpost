@@ -1,0 +1,71 @@
+# new Jekyll MD post
+
+function mkpost() {
+	local postDir="`eval echo \"~\"`/blog/_posts"
+
+	local title
+	echo "Post Title (required): "
+	read -r title
+	
+	if [[ -z "$title" ]]
+		then
+			echo "Must have title. exiting..."
+			kill -INT $$
+	fi
+
+	# Clean title by removing extranious whitespace
+	# to array then back to string
+	read -a title <<< "$title"
+	title="${title[*]}"
+
+	# Remove special characters	
+	local titleTemp="${title//[^a-zA-Z0-9 ]/}"
+
+	# to lower case
+	local uScoreTitle=`tr '[:upper:]' '[:lower:]' <<< "$titleTemp"`
+
+	# space to hyphen
+	uScoreTitle="${uScoreTitle// /-}"
+
+	local filename=`date +"%Y-%m-%d-${uScoreTitle}.md"`
+  local loc="${postDir}/${filename}"
+	
+	if [[ -a "$loc" ]]
+		then
+			echo "File ${loc} already exists."
+			echo "Please choose a different name"
+			echo "or delete previous post"
+			kill -INT $$
+	fi
+
+	local tags
+	echo "Relavent Tags (comma separated): "
+	read -r tags
+	local tempPl=`date +"/%Y/%m/%d/${uScoreTitle}.html"`
+
+	local permalink
+	echo "Permalink, default \"$tempPl\": "
+	read -r permalink
+
+	if [[ -z "${permalink}" ]] 
+		then
+			permalink="${tempPl}"
+	fi
+	
+	cat > "${loc}" <<End-Of-File
+---
+layout: post
+title: $title
+tags: $tags
+permalink: $permalink
+published: true
+---
+
+# $title
+
+content goes here
+
+End-Of-File
+
+	echo "Success!"
+}
