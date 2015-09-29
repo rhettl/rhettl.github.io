@@ -1,7 +1,7 @@
 # new Jekyll MD post
 
-function mkpost() {
-	local postDir="`eval echo \"~\"`/blog/_posts"
+function doMKPost() {
+	postDir="$1"
 
 	local title
 	echo "Post Title (required): "
@@ -68,4 +68,13 @@ content goes here
 End-Of-File
 
 	echo "Success!"
+}
+
+
+function mkdraft() {
+	doMKPost "`eval echo \"~\"`/blog/_drafts"
+}
+
+function mkpost() {
+	doMKPost "`eval echo \"~\"`/blog/_posts"
 }
