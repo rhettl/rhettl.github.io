@@ -11,8 +11,6 @@ permalink: /2015/09/28/hello-world.html
 published: true
 ---
 
-# Hello, World!
-
 The inagural post. Well, hello all you out there.
 
 My name is Rhett. I program for a public ubiversity where I make whatever they want using mostly what technilogies I feel will be most benificial to the project. I get to mentor others. I get to experiment. I have a great job.
