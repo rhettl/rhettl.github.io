@@ -2,6 +2,8 @@
 layout: post
 title: Hello, World!
 summary: Hi! this is all about how I got here.
+author: Rhett Lowe
+thumbnail: thumbs-o-up
 tags:
   - initial
   - hello world
