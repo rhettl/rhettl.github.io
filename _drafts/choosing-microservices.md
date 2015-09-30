@@ -32,11 +32,18 @@ them.
 
 For a year, I tried many different solutions.
  
-## Solution 1: Grouping by type
+ 
+### Solution 1: Grouping by type
 
 First, I just processed some reports using Node.js scripts. Then I added some similar reports to the existing scripts, 
 utilizing the existing functions to make the new reports. 
 
-This approach worked for a few reports, but I found that no matter how I organized it, the code would tangle more for 
-each report I added. These were only dealing with reports of relatively similar type, source, format, and output. Adding 
-other reports of different type would could potentially confound the code beyond usability. 
+This approach worked for a few reports, but I found that the code would tangle more for each report I added, despite my 
+best efforts. These were only dealing with reports of relatively similar type, source, format, and output. Adding other 
+reports of different type would could potentially confound the code beyond usability.
+ 
+Due to the amount of similarities vs the amount of differences between reports, making functions to deal with many or 
+all of the reports was in many areas undoable. I ended up creating different programs to handle different types of 
+reports, grouping reports as I could. This created redundancy in the codee, but made it easier to modify one report 
+without damaging another.
+  
