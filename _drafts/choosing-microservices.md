@@ -33,17 +33,41 @@ them.
 For a year, I tried many different solutions.
  
  
-### Solution 1: Grouping by type
+### Solution 1: Single System
 
 First, I just processed some reports using Node.js scripts. Then I added some similar reports to the existing scripts, 
 utilizing the existing functions to make the new reports. 
 
-This approach worked for a few reports, but I found that the code would tangle more for each report I added, despite my 
-best efforts. These were only dealing with reports of relatively similar type, source, format, and output. Adding other 
-reports of different type would could potentially confound the code beyond usability.
+This approach worked for a few reports of similar type, but I found that the code would tangle more for each report I 
+added, despite my best efforts. I realized quickly I wouldn't be able to make reports of different types coexist. I 
+didn't want to make a new script for each as that would create too much redundancy and be a nightmare to update.
+
+
+### Solution 2: Grouping By Type
  
-Due to the amount of similarities vs the amount of differences between reports, making functions to deal with many or 
-all of the reports was in many areas undoable. I ended up creating different programs to handle different types of 
-reports, grouping reports as I could. This created redundancy in the codee, but made it easier to modify one report 
-without damaging another.
-  
+I started grouping by type of report, input, and output type to, as best possible, reduce redundancy and maintain 
+partial flexibility. I found that even among the reports that are similar, enough differences existed to be problematic 
+and updates which were painful when needed across multiple groups.
+
+
+### My New Solution: Microservers
+
+While sitting in a talk at UCCSC 2015 on a case study for AWS Lambda, it occurred to me I was thinking too large and 
+and needed to think smaller -- a lot smaller. I would make each main component a service with as few input, outputs, and 
+options as possible. 
+
+I took apart multiple service workflows until each was a chain of tasks. Many tasks showed up on multiple workflows. 
+These are my first targets for making into a microservice.
+ 
+I also realized that if they were standalone services, which don't rely on other systems to be active, I could possibly 
+better utilize event driven services, like AWS Lambda. 
+
+
+
+## More in Part 2
+
+In [part 2][1], I'll talk about my data's flow from data-source to to finished state and where microservices will be 
+able to help me first.
+
+
+[1]: /microservices/2015/10/05/choosing-microservices-part-2
